@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>JSTest#5</title>
+      <link rel="stylesheet" href="Style.css">
+  </head>
+  <body>
+      <table id="clientData">
+          <thead>
+            <tr>
+                <th onclick="sortByCol(0)" rowStatus="0">SNO</th>
+                <th onclick="sortByCol(1)" rowStatus="0">ID</th>
+                <th onclick="sortByCol(2)" rowStatus="0">Age</th>
+                <th onclick="sortByCol(3)" rowStatus="0">Name</th>
+                <th onclick="sortByCol(4)" rowStatus="0">Gender</th>
+                <th onclick="sortByCol(5)" rowStatus="0">Company</th>
+                <th onclick="sortByCol(6)" rowStatus="0">Email</th>
+                <th onclick="sortByCol(7)" rowStatus="0">Phone</th>
+                <th onclick="sortByCol(8)" rowStatus="0">Adress</th>
+                <th onclick="sortByCol(9)" rowStatus="0">Actions</th>
+            </tr>
+        </thead>
+          <tbody class = "tableData" id="tableData">              
+              
+          </tbody>
+      </table>      
+          
+          
+      <p>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                let localData = localStorage.getItem("dataJson");
+                if (localData !== null){
+                    let arr = JSON.parse(localStorage.getItem("dataJson"));
+                uploadData(arr);
+                }});
+          </script>
+          <input type="button" value="Add" onclick="addData()">          
+      </p>
+      <p>
+        <input type="text" id="search" placeholder="Search" oninput="searchData()">        
+      </p>
+      <p>
+          <input type="file" id="json_upload" accept=".json" onchange="readFile(this)">
+      </p>
+      <p>
+        <input type="button" value="Submit" onclick = "submitResults()">
+      </p>
+      <p>
+        <a download="data.json" id="jsonDownload" href="#">Download JSON file</a>
+        <script type="application/javascript">    
+        var type = 'data:application/octet-stream;base64, ';
+        var text = localStorage.getItem("dataJson");
+        var base = btoa(text);
+        var res = type + base;
+        document.getElementById("jsonDownload").href = res;
+        </script>
+        </p>
+      <script src="Script.js"></script>
+  </body>
+</html>

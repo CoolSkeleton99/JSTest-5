@@ -1,0 +1,39 @@
+.tableData tr.hide{
+	display: none;
+}
+p{
+	text-indent: 18px;
+}
+table{
+	border: 2px solid black;
+	font-weight: bold;
+		
+}
+tr, td{
+	border: 3px solid #D3D3D3;
+	width: 170px;
+	text-align: left;
+}
+
+th{
+	border: 3px solid #D3D3D3;
+	width: 170px;
+	text-align: right;
+}
+.button{
+	width:170px;
+	text-align: center;
+}
+input{	
+	text-align: right;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+input:read-only {
+	background: #eeeded;
+   }
